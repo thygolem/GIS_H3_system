@@ -27,36 +27,35 @@ udp_socket.sendto(number_of_lines.encode(), destination_address_0)
 
 
 # Obtener la lista de todos los nombres de los hashes en Redis
-hash_names = r.keys() # 
+hash_names = r.keys()
+# print(hash_names)
 
 msg = []
 
+for hash_name in hash_names:
+    hash_ = r.hgetall(hash_name)
+    # print(hash_name.decode())
+    for value in hash_:
+        print('H3ID: ', hash_name.decode(), 'DATA: ', str(hash_.types()))
+        msg = 'H3ID: ', hash_name.decode(), 'DATA: ', str(hash_.types())
+        udp_socket.sendto(bytes(str(msg), encoding='utf-8') , destination_address_1)
+        break
+
+# hashs = r.hgetall(hash_name)
+
 # for _ in range(int(number_of_lines)):
 #     for hash_name in hash_names:
-#         hash = r.hgetall(hash_name)
+#         hashs = r.hgetall(hash_name)
 #         print(f'Hash: {hash_name}')
-#         msg.append(str(f'Hash: {hash_name}'))
-#         for key, value in hash.items():
+#         msg.append('a')
+#         for key, value in hashs.items():
 #             print(f'{key}: {value}')
-#             msg.append(str(f'{key}: {value}'))
+#             msg.append('b')
+
         
 #     # udp_socket.sendto(bytes(str(msg)) , destination_address_1)
 # udp_socket.sendto(bytes(str(msg), encoding='utf-8') , destination_address_1)
 
-for _ in range(int(number_of_lines)):
-
-    for hash_name in hash_names:
-        hash_ = r.hgetall(hash_name)
-        print(f'Hash: {hash_name}')
-        msg.append(str(f'Hash: {hash_name}'))
-        
-        for key, value in hash_.items():
-            print(f'{key}: {value}')
-            msg.append(str(f'{key}: {value}'))
-
-        
-    # udp_socket.sendto(bytes(str(msg)) , destination_address_1)
-udp_socket.sendto(bytes(str(msg), encoding='utf-8') , destination_address_1)
 
 
 
