@@ -1,0 +1,16 @@
+version: '3'
+services:
+  redis:
+    image: redis:latest
+    ports:
+      - "6379:6379"
+    volumes:
+      - /path/on/host:/data
+    command: redis-server --appendonly yes
+
+# version: '3'
+# services:
+#   redis:
+#     image: redis:latest
+#     ports:
+#       - "6379:6379"
