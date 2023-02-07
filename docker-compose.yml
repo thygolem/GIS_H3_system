@@ -8,6 +8,15 @@ services:
       - /path/on/host:/data
     command: redis-server --appendonly yes
 
+  Mongodb:
+    image: mongo
+    volumes:
+      - mongodata:/data/db
+    ports:
+      - "27017:27017"
+volumes:
+  mongodata:
+
 # version: '3'
 # services:
 #   redis:
