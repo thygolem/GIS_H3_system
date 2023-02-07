@@ -34,100 +34,10 @@ msg = []
 
 for hash_name in hash_names:
     hash_ = r.hgetall(hash_name)
-    # print(hash_name.decode())
+    # print(hash_name.decode())s
     for value in hash_:
-        print('H3ID: ', hash_name.decode(), 'DATA: ', str(hash_.types()))
-        msg = 'H3ID: ', hash_name.decode(), 'DATA: ', str(hash_.types())
+        print('H3ID: ', hash_name.decode(), 'DATA: ', str(hash_.items()))
+        msg = 'DATA: ', str(hash_.items())
         udp_socket.sendto(bytes(str(msg), encoding='utf-8') , destination_address_1)
         break
 
-# hashs = r.hgetall(hash_name)
-
-# for _ in range(int(number_of_lines)):
-#     for hash_name in hash_names:
-#         hashs = r.hgetall(hash_name)
-#         print(f'Hash: {hash_name}')
-#         msg.append('a')
-#         for key, value in hashs.items():
-#             print(f'{key}: {value}')
-#             msg.append('b')
-
-        
-#     # udp_socket.sendto(bytes(str(msg)) , destination_address_1)
-# udp_socket.sendto(bytes(str(msg), encoding='utf-8') , destination_address_1)
-
-
-
-
-
-
-
-
-
-
-
-
-
-# Iterar a través de todos los hashes y mostrar cada clave con sus valores
-# for _ in range(int(number_of_lines)):
-
-
-
-# for hash_name in hash_names:
-#     hash = r.hgetall(hash_name)
-#     print(f'Hash: {hash_name}')
-#     msg.append(str(f'Hash: {hash_name}'))
-#     for key, value in hash.items():
-#         print(f'{key}: {value}')
-#         msg.append(str(f'{key}: {value}'))
-#         # udp_socket.sendto(msg.encode(), destination_address_1)
-# udp_socket.sendto(bytes(str(msg), encoding='utf-8') , destination_address_1)
-
-
-
-# print(str(msg))
-    # udp_socket.sendto(msg.encode(), destination_address_1)
-# bytes(str(numbers), encoding='utf-8')
-
-
-
-
-
-
-# # values = r.hget('8a39242600c7fff', 'types')
-
-# hashs = r.hgetall('8a39242600c7fff')
-
-# for i in H3IDlist:
-#     # print(i)
-#     value = r.hgetall(i)
-#     for key, value in hashs.items():
-#         print(f'{key}: {value}')
-
-
-
-
-
-# Imprimir los valores del hash
-# for key, value in hashs.items():
-#     print(f'{key}: {value}')
-
-# print(values)
-# print(hashs)
-
-
-# for value in values:
-#     if value:
-#         # procesar el valor aquí
-#         print(value)
-#     else:
-#         print("La clave no existe en la base de datos")
-
-# for _ in H3IDlist:
-#     value = r.mget(_)
-#     print(value)
-
-
-
-
-# udp_socket = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
